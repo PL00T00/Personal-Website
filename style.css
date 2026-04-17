@@ -4,7 +4,7 @@ img {
 
 body {
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     background-color: #5049ac;
     background-image:
         linear-gradient(90deg, rgba(214, 214, 214, 0.08) 3px, transparent 1px),
@@ -18,4 +18,37 @@ button {
     height: 50px;
     font-size: 30px;
     cursor: pointer;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #5049ac;
+  position: fixed; 
+  top: 0; 
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Links inside the navbar */
+.navBtn {
+  float: left;
+  font-size: 15px;
+  color: #ffffff;
+  background-color: transparent;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: underline;
+  text-decoration-color: antiquewhite;
+  width: 100px;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+/* Main content */
+.main {
+  margin-top: 30px; /* Add a top margin to avoid content overlay */
 }
