@@ -10,6 +10,7 @@ body {
         linear-gradient(90deg, rgba(214, 214, 214, 0.08) 3px, transparent 1px),
         linear-gradient(rgba(249, 243, 243, 0.08) 1px, transparent 3px);
     background-size: 90px 90px;
+
 }
 
 button {
@@ -26,10 +27,9 @@ button {
   position: fixed; 
   top: 0; 
   width: 100%;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
-/* Links inside the navbar */
 .navBtn {
   float: left;
   font-size: 15px;
@@ -40,15 +40,10 @@ button {
   text-decoration: underline;
   text-decoration-color: antiquewhite;
   width: 100px;
+  height: 40px;
+  border: none;
 }
 
-/* Change background on mouse-over */
-.navbar a:hover {
-  background: #ddd;
-  color: black;
-}
-
-/* Main content */
-.main {
-  margin-top: 30px; /* Add a top margin to avoid content overlay */
+main {
+    margin-top: 200px;
 }
