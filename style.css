@@ -44,6 +44,20 @@ button {
   border: none;
 }
 
+.navBtn:hover {
+    text-decoration: none;
+    color: lightblue;
+}
+
+.navBtn:active {
+    text-decoration: none;
+    color: blue;
+}
+
 main {
     margin-top: 200px;
+}
+
+.hidden {
+    display: none;
 }
