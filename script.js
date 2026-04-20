@@ -21,3 +21,8 @@ homeBtn.onclick = function () {
     showOnly('welcomePage');
     scrollTop();
 };
+
+loreBtn.onclick = function () {
+    showOnly('loreHome');
+    scrollTop();
+}

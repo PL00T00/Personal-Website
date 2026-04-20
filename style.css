@@ -61,3 +61,10 @@ main {
 .hidden {
     display: none;
 }
+
+.storyBtn {
+    border-radius: 20px;
+    width: 350px;
+    height: 300px;
+    font-size: 20px;
+}
