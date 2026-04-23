@@ -62,7 +62,7 @@ main {
     display: none;
 }
 
-.storyBtn {
+.project {
     border-radius: 20px;
     width: 350px;
     height: 300px;
@@ -72,10 +72,10 @@ main {
     border-width: 5px;
 }
 
-.storyBtn:hover {
+.project:hover {
     transform: scale(1.05);
 }
 
-.storyBtn:active {
+.project:active {
     transform: scale(0.95);
 }
