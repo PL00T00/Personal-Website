@@ -18,7 +18,7 @@ function scrollTop() {
 }
 
 homeBtn.onclick = function () {
-    showOnly('welcomePage');
+    showOnly('welcome');
     scrollTop();
 };
 
