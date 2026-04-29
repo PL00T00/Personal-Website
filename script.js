@@ -18,11 +18,11 @@ function scrollTop() {
 }
 
 homeBtn.onclick = function () {
-    showOnly('welcomePage');
+    showOnly('welcome');
     scrollTop();
 };
 
-loreBtn.onclick = function () {
-    showOnly('loreHome');
+projectBtn.onclick = function () {
+    showOnly('projects');
     scrollTop();
 }
