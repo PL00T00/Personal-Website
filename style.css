@@ -67,6 +67,7 @@ main {
     background-color: #5049ac;
     color: #ffffff;
     border-width: 5px;
+    margin: 10px;
 }
 
 .project:hover {
@@ -75,4 +76,10 @@ main {
 
 .project:active {
     transform: scale(0.95);
+}
+
+.projectImg {
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
 }
