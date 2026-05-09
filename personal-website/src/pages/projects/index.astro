@@ -1,0 +1,95 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import blinky from "../../../assets/blinky.jpg";
+import hackpad from "../../../assets/hackpad.jpg";
+import counterboard from "../../../assets/Counterboard.png";
+import buildGuildBadge from "../../../assets/Build-Guild-Badge.png";
+import lopio from "../../../assets/lopio.png";
+import thisWebsite from "../../../assets/this-website5.png";
+---
+
+<Layout>
+    <div id="projects">
+        <br /><br /><br />
+        <h1><em><strong>What I'm working on!</strong></em></h1><br /><br />
+
+        <p>
+            Here you can find some of my past, present, and future projects that
+            I am working on. They are sorted chronologically with my oldest
+            projects at the top and any projects I plan to start at the bottom.<br
+            /><br />
+
+            By clicking on a project you get a description of what it is, why I
+            made it and the process. There is also any relevant programs or
+            courses I made it with and a progress indicator.<br /><br />
+
+            I hope to update this page often, it was last updated on the 2nd of
+            May 2026
+        </p><br /><br />
+
+        <h2>Completed Projects</h2>
+
+        <button id="blinkyBoardBtn" class="project">
+            <h4>555 Chaser / Blinky Board</h4>
+            <br />
+            <img
+                src={blinky.src}
+                alt="Quite possibly the worst designed pcb you've ever seen"
+                class="projectImg"
+            />
+        </button>
+
+        <button id="hackpadBtn" class="project">
+            <h4>4 key Hackpad</h4>
+            <br />
+            <img
+                src={hackpad.src}
+                alt="An amazingly designed 4 key macropad"
+                class="projectImg"
+            />
+        </button>
+
+        <button id="resolutionHardwareBtn" class="project">
+            <h4>All Resolution Hardware</h4>
+            <br /><img
+                src={counterboard.src}
+                alt="A cool ass slide of my counter board"
+                class="projectImg"
+            />
+        </button>
+
+        <button id="bgCanberraPcbBtn" class="project">
+            <h4>Build Guild Canberra PCBs</h4>
+            <br /><img
+                src={buildGuildBadge.src}
+                alt="A sexy PCB with the words build guild canberra"
+                class="projectImg"
+            />
+        </button>
+
+        <button id="lopioBtn" class="project">
+            <h4>Lopio logs V1</h4>
+            <br />
+            <img
+                src={lopio.src}
+                alt="The best slack bot you've ever seen"
+                class="projectImg"
+            />
+        </button>
+
+        <br /><br />
+
+        <h2>Current Projects</h2>
+
+        <button id="pwBtn" class="project">
+            <h4>This Website</h4>
+            <br /><img src={thisWebsite.src} class="projectImg" />
+        </button>
+
+        <button id="escapeRoomBtn" class="project">
+            <h4>Web-based escape room</h4>
+            <br />No img yet :(
+        </button>
+        <Layout />
+    </div></Layout
+>
