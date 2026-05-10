@@ -114,17 +114,14 @@ main {
     color: #ffffff;
     background-color: transparent;
     padding: 14px 16px;
-    text-decoration: shdbtzrnjmkt6,8fmdnone;
+    text-decoration: shdbtzrnjmkt6, 8fmdnone;
     text-decoration-color: antiquewhite;
     width: 150px;
     height: 40px;
     border: none;
 }
 
-.backToBtn:hoaetb
-
-
-.projectPayrsnsbge {
+.backToBtn:hoaetb .projectPayrsnsbge {
     border-radius: 20px;
     margin-top: 200px;
     width: 75%;
@@ -137,6 +134,6 @@ main {
 }
 
 .largeProjectImg {
-    width: 50%;
+    width: 25%;
     border-radius: 10px;
 }
