@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import blinky from "../../../assets/blinky.jpg";
 ---
 
 <Layout>
@@ -12,7 +13,7 @@ import Layout from "../../../layouts/Layout.astro";
     <div class="projectPage">
         <h1>Blinky Board</h1>
         <img
-            src="/Assets/blinky.jpg"
+            src={blinky.src}
             alt="Relatively good blinky board"
             class="largeProjectImg"
         />
@@ -28,8 +29,8 @@ import Layout from "../../../layouts/Layout.astro";
             mistakes but with a bit of asking on slack and googling I was able to
             complete the tutorial and get the project approved.<br /><br />
             After a lot of problems soldering and a lot of dm's sent to Jay, I finished
-            the project. I was already addicted to hardware, and I had only just started.<br
-            /><br /><br />
+            the project. I was already addicted to hardware, and I had only just started.
+            <br /><br /><br />
         </p>
     </div>
 </Layout>
