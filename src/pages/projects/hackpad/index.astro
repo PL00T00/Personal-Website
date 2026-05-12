@@ -1,0 +1,62 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import hackpad from "../../../assets/hackpad.jpg";
+---
+
+<Layout>
+    <p>
+        if you see this, I've done did a fuck up, please make an issue on
+        GitHub!
+    </p><br /><br />
+    <a href="/projects/" class="backToBtn">Back to Projects</a>
+
+    <div class="projectPage">
+        <h1>Hackpad</h1>
+        <img
+            src={hackpad.src}
+            alt="Cool ass four key keyboard"
+            class="largeProjectImg"
+        />
+        <p>
+            After taking a long break from Blueprint and getting an actually
+            good laptop, I decided to give Kicad a try. I had wanted to try it
+            with my friend but they never had free time. After so much begging
+            good laptop, I decided to give Kicad a try. I had wanted to try it
+            with my friend but they never had free time. and asking, I gave up
+            and decided to make it myself. It took me a couple of days but
+            evenually I had a schematic and PCB I was happy with... untill I
+            submitted it for review...<br /><br />
+
+            A bit of backstory here. The Blueprint guides sucked. No offence to
+            anyone who spent time making them but they were full of
+            misinformation and mistakes. I was constantly asking on the Slack
+            for help.
+            <br />
+            <br />
+            After submitting 5 times and getting rejected for small problems with
+            my Github I submitted one last time and it got approved!! <strong
+                >JK</strong
+            >, it would never be that easy. Turns out my schematic was extremely
+            wrong and it took this long for people getting paid to look at my
+            project to realise...
+            <br /><br />
+            After about another week I had completely remade the schematic and it
+            actually got approved this time! Then I built the it and submitted it
+            for build review, expecting it to take around a week. Three months later
+            it's still in build review...
+        </p>
+        <br />
+        <h4>Programs and Links:</h4><br /><br />
+        <a
+            href="https://blueprint.hackclub.com/projects/9821"
+            target="_blank"
+            rel="noopener noreferrer">Blueprint!</a
+        >
+        <a
+            href="https://github.com/PL00T00/SpeedrunPad-"
+            target="_blank"
+            rel="noopener noreferrer">Github!</a
+        >
+    </div>
+    <br /><br /><br />
+</Layout>
