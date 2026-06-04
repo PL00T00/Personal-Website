@@ -1,0 +1,86 @@
+---
+import { ACHIEVEMENTS } from "../data/achievements.ts";
+---
+
+<div
+    id="achievementPopup"
+    class="fixed bottom-5 right-5 transform translate-y-20 opacity-0 hidden transition-all duration-500 ease-out bg-slate-900 text-white p-4 rounded-xl shadow-2xl flex items-center gap-3 z-50 pointer-events-none"
+>
+    <div id="popupIcon" class="text-3xl">Wowie Zowie!</div>
+    <div>
+        <p
+            id="achievementText"
+            class="text-xs text-amber-400 font-bold uppercase tracking-wider"
+        >
+            Achievement Unlocked!
+        </p>
+        <h4 id="popupTitle" class="font-bold text-sm">Title</h4>
+        <p id="popupDesc" class="text-xs text-slate-400">Description</p>
+    </div>
+</div>
+
+<script>
+    import { ACHIEVEMENTS } from "../data/achievements.ts";
+
+    declare global {
+        interface Window {
+            unlockAchievement: (id: string) => void;
+        }
+    }
+
+    function getUnlockedAchievements() {
+        const cookies = document.cookie.split(";");
+        const cookie = cookies.find((row) =>
+            row.trim().startsWith("unlocked_achievement="),
+        );
+        if (!cookie) return [];
+        try {
+            return JSON.parse(decodeURIComponent(cookie.split("=")));
+        } catch {
+            return [];
+        }
+    }
+
+    window.unlockAchievement = function (id) {
+        if (!ACHIEVEMENTS[id]) return;
+
+        const current = getUnlockedAchievements();
+        if (current.includes(id)) return;
+
+        current.push(id);
+        document.cookie = `unlocked_achievement=${encodeURIComponent(JSON.stringify(current))}; max-age=31536000; path=/; SameSite=Lax; Secure`;
+
+        showPopup(ACHIEVEMENTS[id]);
+    };
+
+    let popupTimeout: number;
+
+    function showPopup(achievement) {
+        const popup = document.getElementById("achievementPopup");
+        const title = document.getElementById("popupTitle");
+        const desc = document.getElementById("popupDesc");
+
+        if (!popup || !title || !desc) return;
+
+        const [icon, ...textParts] = achievement.title.split(" ");
+        document.getElementById("popupIcon").innerText = icon;
+        title.innerText = textParts.join(" ");
+        desc.innerText = achievement.desc;
+
+        clearTimeout(popupTimeout);
+
+        popup.classList.remove("hidden");
+
+        setTimeout(() => {
+            popup.classList.remove("translate-y-20", "opacity-0");
+        }, 10);
+
+        popupTimeout = window.setTimeout(() => {
+            popup.classList.add("translate-y-20", "opacity-0");
+
+            setTimeout(() => {
+                popup.classList.add("hidden");
+            }, 500);
+        }, 4000);
+    }
+</script>

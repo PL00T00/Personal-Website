@@ -45,14 +45,9 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-	function checkFirstVisit () {
-		if (!document.cookie.includes('first_visit_logged=true')) {
-			 
-			console.log('Welcome to the site! Heres an acheivement!');
-			
-			document.cookie = "first_visit_logged=true; max-age=31536000; path=/; SameSite=Lax; Secure"
+	document.addEventListener("DOMContentLoaded", () => {
+		if (typeof window.unlockAchievement === "function") {
+			window.unlockAchievement("FIRST_VISIT");
 		}
-	}
-
-	checkFirstVisit();
+	});
 </script>
