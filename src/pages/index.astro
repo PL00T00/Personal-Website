@@ -43,3 +43,16 @@ import Layout from "../layouts/Layout.astro";
 		/><br /><br /><br /><br /><br /><br /><br /><br />
 	</div>
 </Layout>
+
+<script>
+	function checkFirstVisit () {
+		if (!document.cookie.includes('first_visit_logged=true')) {
+			 
+			console.log('Welcome to the site! Heres an acheivement!');
+			
+			document.cookie = "first_visit_logged=true; max-age=31536000; path=/; SameSite=Lax; Secure"
+		}
+	}
+
+	checkFirstVisit();
+</script>
