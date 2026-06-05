@@ -45,9 +45,7 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-	document.addEventListener("DOMContentLoaded", () => {
-		if (typeof window.unlockAchievement === "function") {
-			window.unlockAchievement("FIRST_VISIT");
-		}
+	window.addEventListener("load", () => {
+		window.unlockAchievement?.("FIRST_VISIT");
 	});
 </script>

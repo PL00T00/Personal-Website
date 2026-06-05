@@ -1,86 +1,150 @@
 ---
-import { ACHIEVEMENTS } from "../data/achievements.ts";
+
 ---
 
-<div
-    id="achievementPopup"
-    class="fixed bottom-5 right-5 transform translate-y-20 opacity-0 hidden transition-all duration-500 ease-out bg-slate-900 text-white p-4 rounded-xl shadow-2xl flex items-center gap-3 z-50 pointer-events-none"
->
-    <div id="popupIcon" class="text-3xl">Wowie Zowie!</div>
+<div id="achievementPopup" class="achievement-popup hidden">
+    <div id="popupIcon" class="popup-icon">🏆</div>
+
     <div>
-        <p
-            id="achievementText"
-            class="text-xs text-amber-400 font-bold uppercase tracking-wider"
-        >
-            Achievement Unlocked!
-        </p>
-        <h4 id="popupTitle" class="font-bold text-sm">Title</h4>
-        <p id="popupDesc" class="text-xs text-slate-400">Description</p>
+        <p id="achievementText" class="popup-label">Achievement Unlocked!</p>
+
+        <h4 id="popupTitle">Title</h4>
+
+        <p id="popupDesc">Description</p>
     </div>
 </div>
 
-<script>
+<script type="module">
     import { ACHIEVEMENTS } from "../data/achievements.ts";
 
-    declare global {
-        interface Window {
-            unlockAchievement: (id: string) => void;
-        }
-    }
-
     function getUnlockedAchievements() {
-        const cookies = document.cookie.split(";");
-        const cookie = cookies.find((row) =>
-            row.trim().startsWith("unlocked_achievement="),
-        );
+        const cookie = document.cookie
+            .split(";")
+            .find((row) => row.trim().startsWith("unlocked_achievement="));
+
         if (!cookie) return [];
+
         try {
-            return JSON.parse(decodeURIComponent(cookie.split("=")));
+            return JSON.parse(decodeURIComponent(cookie.split("=")[1]));
         } catch {
             return [];
         }
     }
 
-    window.unlockAchievement = function (id) {
-        if (!ACHIEVEMENTS[id]) return;
-
-        const current = getUnlockedAchievements();
-        if (current.includes(id)) return;
-
-        current.push(id);
-        document.cookie = `unlocked_achievement=${encodeURIComponent(JSON.stringify(current))}; max-age=31536000; path=/; SameSite=Lax; Secure`;
-
-        showPopup(ACHIEVEMENTS[id]);
-    };
-
-    let popupTimeout: number;
-
     function showPopup(achievement) {
         const popup = document.getElementById("achievementPopup");
         const title = document.getElementById("popupTitle");
         const desc = document.getElementById("popupDesc");
+        const icon = document.getElementById("popupIcon");
 
-        if (!popup || !title || !desc) return;
+        if (!popup || !title || !desc || !icon) {
+            return;
+        }
 
-        const [icon, ...textParts] = achievement.title.split(" ");
-        document.getElementById("popupIcon").innerText = icon;
-        title.innerText = textParts.join(" ");
-        desc.innerText = achievement.desc;
+        const [emoji, ...titleParts] = achievement.title.split(" ");
 
-        clearTimeout(popupTimeout);
+        icon.textContent = emoji || "🏆";
+        title.textContent = titleParts.join(" ") || achievement.title;
+        desc.textContent = achievement.desc;
 
         popup.classList.remove("hidden");
 
-        setTimeout(() => {
-            popup.classList.remove("translate-y-20", "opacity-0");
-        }, 10);
+        requestAnimationFrame(() => {
+            popup.classList.add("visible");
+        });
 
-        popupTimeout = window.setTimeout(() => {
-            popup.classList.add("translate-y-20", "opacity-0");
+        setTimeout(() => {
+            popup.classList.remove("visible");
 
             setTimeout(() => {
                 popup.classList.add("hidden");
-            }, 500);
+            }, 300);
         }, 4000);
     }
+
+    window.unlockAchievement = function (id) {
+        console.log("Achievement attempt:", id);
+
+        if (!(id in ACHIEVEMENTS)) {
+            console.warn("Achievement does not exist:", id);
+            return;
+        }
+
+        const unlocked = getUnlockedAchievements();
+
+        if (unlocked.includes(id)) {
+            return;
+        }
+
+        unlocked.push(id);
+
+        document.cookie = `unlocked_achievement=${encodeURIComponent(
+            JSON.stringify(unlocked),
+        )}; max-age=31536000; path=/; SameSite=Lax`;
+
+        showPopup(ACHIEVEMENTS[id]);
+    };
+
+    console.log("Achievement tracker loaded");
 </script>
+
+<style>
+    .achievement-popup {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+
+        display: flex;
+        gap: 12px;
+        align-items: center;
+
+        background: #111827;
+        color: white;
+
+        padding: 16px;
+        border-radius: 12px;
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+        opacity: 0;
+        transform: translateY(80px);
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+
+        z-index: 9999;
+        pointer-events: none;
+    }
+
+    .achievement-popup.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .popup-icon {
+        font-size: 2rem;
+    }
+
+    .popup-label {
+        margin: 0;
+        font-size: 0.75rem;
+        font-weight: bold;
+        color: #fbbf24;
+        text-transform: uppercase;
+    }
+
+    #popupTitle {
+        margin: 0;
+    }
+
+    #popupDesc {
+        margin: 0;
+        font-size: 0.85rem;
+        color: #9ca3af;
+    }
+</style>
