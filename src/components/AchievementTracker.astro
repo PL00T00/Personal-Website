@@ -1,5 +1,5 @@
 ---
-
+import { ACHIEVEMENTS } from "../data/achievements.js";
 ---
 
 <div id="achievementPopup" class="achievement-popup hidden">
@@ -9,83 +9,94 @@
         <p id="achievementText" class="popup-label">Achievement Unlocked!</p>
 
         <h4 id="popupTitle">Title</h4>
-
         <p id="popupDesc">Description</p>
     </div>
 </div>
 
-<script type="module">
-    import { ACHIEVEMENTS } from "../data/achievements.ts";
+<!-- Pass data safely into the browser (NO module imports in JS) -->
+<script is:inline define:vars={{ ACHIEVEMENTS }}>
+    (() => {
+        const data = ACHIEVEMENTS;
 
-    function getUnlockedAchievements() {
-        const cookie = document.cookie
-            .split(";")
-            .find((row) => row.trim().startsWith("unlocked_achievement="));
+        function getUnlocked() {
+            const cookie = document.cookie
+                .split(";")
+                .find((c) => c.trim().startsWith("unlocked_achievement="));
 
-        if (!cookie) return [];
+            if (!cookie) return [];
 
-        try {
-            return JSON.parse(decodeURIComponent(cookie.split("=")[1]));
-        } catch {
-            return [];
-        }
-    }
-
-    function showPopup(achievement) {
-        const popup = document.getElementById("achievementPopup");
-        const title = document.getElementById("popupTitle");
-        const desc = document.getElementById("popupDesc");
-        const icon = document.getElementById("popupIcon");
-
-        if (!popup || !title || !desc || !icon) {
-            return;
+            try {
+                return JSON.parse(decodeURIComponent(cookie.split("=")[1]));
+            } catch {
+                return [];
+            }
         }
 
-        const [emoji, ...titleParts] = achievement.title.split(" ");
+        function saveUnlocked(list) {
+            document.cookie =
+                "unlocked_achievement=" +
+                encodeURIComponent(JSON.stringify(list)) +
+                "; max-age=31536000; path=/; SameSite=Lax";
+        }
 
-        icon.textContent = emoji || "🏆";
-        title.textContent = titleParts.join(" ") || achievement.title;
-        desc.textContent = achievement.desc;
+        function showPopup(achievement) {
+            const popup = document.getElementById("achievementPopup");
+            const title = document.getElementById("popupTitle");
+            const desc = document.getElementById("popupDesc");
+            const icon = document.getElementById("popupIcon");
 
-        popup.classList.remove("hidden");
+            if (!popup || !title || !desc || !icon) return;
 
-        requestAnimationFrame(() => {
-            popup.classList.add("visible");
-        });
+            const [emoji, ...rest] = achievement.title.split(" ");
 
-        setTimeout(() => {
-            popup.classList.remove("visible");
+            icon.textContent = emoji || "🏆";
+            title.textContent = rest.join(" ") || achievement.title;
+            desc.textContent = achievement.desc;
+
+            // FORCE SHOW (this is the only reliable way in your setup)
+            popup.style.display = "flex";
+
+            // reset state first (important for re-triggering animation)
+            popup.style.opacity = "0";
+            popup.style.transform = "translateY(20px)";
+
+            requestAnimationFrame(() => {
+                popup.style.opacity = "1";
+                popup.style.transform = "translateY(0)";
+            });
 
             setTimeout(() => {
-                popup.classList.add("hidden");
-            }, 300);
-        }, 4000);
-    }
+                popup.style.opacity = "0";
+                popup.style.transform = "translateY(20px)";
 
-    window.unlockAchievement = function (id) {
-        console.log("Achievement attempt:", id);
-
-        if (!(id in ACHIEVEMENTS)) {
-            console.warn("Achievement does not exist:", id);
-            return;
+                setTimeout(() => {
+                    popup.style.display = "none";
+                }, 300);
+            }, 3000);
         }
 
-        const unlocked = getUnlockedAchievements();
+        function unlockAchievement(id) {
+            console.log("Achievement attempt:", id);
 
-        if (unlocked.includes(id)) {
-            return;
+            if (!data[id]) {
+                console.warn("Unknown achievement:", id);
+                return;
+            }
+
+            const unlocked = getUnlocked();
+
+            if (unlocked.includes(id)) return;
+
+            unlocked.push(id);
+            saveUnlocked(unlocked);
+
+            showPopup(data[id]);
         }
 
-        unlocked.push(id);
+        window.unlockAchievement = unlockAchievement;
 
-        document.cookie = `unlocked_achievement=${encodeURIComponent(
-            JSON.stringify(unlocked),
-        )}; max-age=31536000; path=/; SameSite=Lax`;
-
-        showPopup(ACHIEVEMENTS[id]);
-    };
-
-    console.log("Achievement tracker loaded");
+        console.log("Achievement tracker loaded");
+    })();
 </script>
 
 <style>
