@@ -3,17 +3,16 @@ import { ACHIEVEMENTS } from "../data/achievements.js";
 ---
 
 <div id="achievementPopup" class="achievement-popup hidden">
-    <div id="popupIcon" class="popup-icon">🏆</div>
+    <div id="popupIcon" class="popup-icon">🐦‍⬛</div>
 
     <div>
-        <p id="achievementText" class="popup-label">Achievement Unlocked!</p>
+        <p id="achievementText" class="popup-label">You got an achievment!</p>
 
         <h4 id="popupTitle">Title</h4>
         <p id="popupDesc">Description</p>
     </div>
 </div>
 
-<!-- Pass data safely into the browser (NO module imports in JS) -->
 <script is:inline define:vars={{ ACHIEVEMENTS }}>
     (() => {
         const data = ACHIEVEMENTS;
@@ -53,10 +52,8 @@ import { ACHIEVEMENTS } from "../data/achievements.js";
             title.textContent = rest.join(" ") || achievement.title;
             desc.textContent = achievement.desc;
 
-            // FORCE SHOW (this is the only reliable way in your setup)
             popup.style.display = "flex";
 
-            // reset state first (important for re-triggering animation)
             popup.style.opacity = "0";
             popup.style.transform = "translateY(20px)";
 
@@ -109,7 +106,7 @@ import { ACHIEVEMENTS } from "../data/achievements.js";
         gap: 12px;
         align-items: center;
 
-        background: #111827;
+        background: #3a32ac;
         color: white;
 
         padding: 16px;
