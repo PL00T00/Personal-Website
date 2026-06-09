@@ -8,7 +8,7 @@ export const ACHIEVEMENTS = {
     VIEW_PROJECTS: {
         id: "VIEW_PROJECTS",
         title: "💜 New Biggest Fan",
-        desc: "I can't belive I have a new biggest fan!"
+        desc: "I cant belive I have a new biggest fan!"
     },
 
     TYPE_PIGEON: {
