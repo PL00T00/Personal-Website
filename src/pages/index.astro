@@ -42,7 +42,18 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-	window.addEventListener("load", () => {
-		window.unlockAchievement?.("FIRST_VISIT");
-	});
-</script>
+function runReviewer() {
+    document.getElementById("guidedTour1")?.classList.remove("hidden");
+    console.log("IT WORKS");
+}
+
+const reviewCode = "REVIEWER";
+let keyPresses = "";
+
+document.addEventListener("keydown", (e) => {
+    keyPresses += e.key.toUpperCase();
+
+    if (keyPresses.endsWith(reviewCode)) {
+        runReviewer();
+    }
+});
