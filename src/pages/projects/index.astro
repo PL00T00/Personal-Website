@@ -57,48 +57,50 @@ import thisWebsite from "../../assets/this-website5.png";
             />
         </button>
 
-        <button id="resolutionHardwareBtn" class="project">
-            <h4>All Resolution Hardware</h4>
-            <br /><img
-                src={counterboard.src}
-                alt="A cool ass slide of my counter board"
-                class="projectImg"
-            />
-        </button>
-
-        <button id="bgCanberraPcbBtn" class="project">
-            <h4>Build Guild Canberra PCBs</h4>
-            <br /><img
-                src={buildGuildBadge.src}
-                alt="A sexy PCB with the words build guild canberra"
-                class="projectImg"
-            />
-        </button>
-
-        <button id="lopioBtn" class="project">
-            <h4>Lopio logs V1</h4>
-            <br />
-            <img
-                src={lopio.src}
-                alt="The best slack bot you've ever seen"
-                class="projectImg"
-            />
-        </button>
-
-        <br /><br />
-
-        <h2>Current Projects</h2>
-
-        <button id="pwBtn" class="project">
-            <h4>This Website</h4>
-            <br /><img src={thisWebsite.src} class="projectImg" />
-        </button>
-
-        <button id="escapeRoomBtn" class="project">
-            <h4>Web-based escape room</h4>
-            <br />No img yet :(
-        </button>
+        <button
+            id="resolutionHardwareBtn"
+            class="project"
+            onclick="window.location.href='/projects/hackpad/';"></button>
+        <h4>All Resolution Hardware</h4>
+        <br /><img
+            src={counterboard.src}
+            alt="A cool ass slide of my counter board"
+            class="projectImg"
+        />
     </div>
+
+    <button id="bgCanberraPcbBtn" class="project">
+        <h4>Build Guild Canberra PCBs</h4>
+        <br /><img
+            src={buildGuildBadge.src}
+            alt="A sexy PCB with the words build guild canberra"
+            class="projectImg"
+        />
+    </button>
+
+    <button id="lopioBtn" class="project">
+        <h4>Lopio logs V1</h4>
+        <br />
+        <img
+            src={lopio.src}
+            alt="The best slack bot you've ever seen"
+            class="projectImg"
+        />
+    </button>
+
+    <br /><br />
+
+    <h2>Current Projects</h2>
+
+    <button id="pwBtn" class="project">
+        <h4>This Website</h4>
+        <br /><img src={thisWebsite.src} class="projectImg" />
+    </button>
+
+    <button id="escapeRoomBtn" class="project">
+        <h4>Web-based escape room</h4>
+        <br />No img yet :(
+    </button>
 </Layout>
 
 <script is:inline>
