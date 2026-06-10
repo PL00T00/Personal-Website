@@ -59,7 +59,7 @@ import Layout from "../layouts/Layout.astro";
 
 		if (keyPresses.endsWith(reviewCode)) {
 			runReviewer();
-			window.unlockAchievement("REVIEWER");
+			window.unlockAchievement?.("REVIEWER");
 		}
 	});
 </script>
