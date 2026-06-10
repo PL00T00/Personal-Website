@@ -121,14 +121,27 @@ main {
     border: none;
 }
 
-.backToBtn:hoaetb .projectPayrsnsbge {
+.backToBtn:hover {
+    transform: scale(1.05);
+}
+
+.projectPage {
     border-radius: 20px;
     margin-top: 200px;
     width: 75%;
-    height: 80%;
+    background-color: #d3d3d36b;
+    border-width: 5px;
+    margin: 10px auto;
+}
+
+.projectPageContent {
+    width: 70%;
     font-size: 20px;
-    background-color: #d3d3d3;
     color: #363737;
+    align-items: center;
+    border-radius: 20px;
+    margin-top: 200px;
+    width: 75%;
     border-width: 5px;
     margin: 10px auto;
 }
