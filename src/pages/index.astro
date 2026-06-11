@@ -44,6 +44,20 @@ import Layout from "../layouts/Layout.astro";
 				extremely hungry if you couldn't tell.) But now onto the meat
 				and sauce of the site!
 			</p>
+			<button
+				class="tourBtn"
+				onclick="document.getElementById('tour1')?.classList.remove('hidden');
+				document.getElementById('tour2')?.classList.add('hidden')"
+				>Previous</button
+			>
+			<button
+				class="tourBtn"
+				onclick="
+					window.location.href='/projects/';
+					document.getElementById('tour3')?.classList.remove('hidden');
+					document.getElementById('tour2')?.classList.add('hidden')"
+				>The Sauce!</button
+			>
 		</div>
 
 		<h1><strong><em>Welcome to the real Journal of Jame</em></strong></h1>
