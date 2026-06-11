@@ -6,6 +6,21 @@ import blinky from "../../../assets/blinky.jpg";
 <Layout>
     <a href="/projects/" class="backToBtn">Back to Projects</a>
 
+    <div id="tour4" class="tour hidden">
+        <h1>Blinky Board!</h1><br /><br />
+        <p>
+            This is a good example of a specific project page. While it's not
+            complicated at all, I think it serves it's purpose. It has an image
+            of the project, a short description and the related links like the
+            github or tutorial. <br /> Personally I think the Resolution Hardware
+            page is a good read, you should go check it out after the tour!<br
+            /><br />
+        </p>
+        <button class="tourBtn" onclick="window.location.replace()">
+            rwfsd</button
+        >
+    </div>
+
     <div class="projectPage">
         <h1>Blinky Board</h1>
         <img
@@ -43,3 +58,10 @@ import blinky from "../../../assets/blinky.jpg";
     </div>
     <br /><br /><br />
 </Layout>
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("tour") === "4") {
+        document.getElementById("tour4")?.classList.remove("hidden");
+    }
+</script>

@@ -18,9 +18,7 @@ import thisWebsite from "../../assets/this-website5.png";
             pressing on the button brings you to a page with more details.<br /> Let's
             have a look at my blinky board!
         </p>
-        <button
-            class="tourBtn"
-            onclick="window.location.href='jamesite.dino.icu/?tour=2';"
+        <button class="tourBtn" onclick="window.location.href='../?tour=2';"
             >Back to projects</button
         >
         <button
@@ -123,7 +121,7 @@ import thisWebsite from "../../assets/this-website5.png";
 
     const params = new URLSearchParams(window.location.search);
 
-    if (params.get("tour") === "true") {
+    if (params.get("tour") === "3") {
         document.getElementById("tour3")?.classList.remove("hidden");
     }
 </script>
