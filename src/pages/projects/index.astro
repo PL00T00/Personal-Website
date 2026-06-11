@@ -9,6 +9,26 @@ import thisWebsite from "../../assets/this-website5.png";
 ---
 
 <Layout>
+    <div id="tour3" class="tour hidden">
+        <h1>The Projects Page!</h1><br /><br />
+        <p>
+            This is the projects page, it's where I show off my projects.
+            Projects are sorted chronologically with my oldest projects at the
+            top. Each project button has a picture of the project and a title.
+            pressing on the button brings you to a page with more details.<br /> Let's
+            have a look at my blinky board!
+        </p>
+        <button
+            class="tourBtn"
+            onclick="window.location.href='jamesite.dino.icu/?tour=2';"
+            >Back to projects</button
+        >
+        <button
+            class="tourBtn"
+            onclick="window.location.href='/projects/blinky-board/?tour=4';"
+            >Blinky board!</button
+        >
+    </div>
     <div id="projects">
         <h1><em><strong>What I'm working on!</strong></em></h1><br /><br />
 
@@ -22,8 +42,8 @@ import thisWebsite from "../../assets/this-website5.png";
             made it and the process. There is also any relevant programs or
             courses I made it with.<br /><br />
 
-            I hope to update this page often, it was last updated on the 9nd of
-            May 2026
+            I hope to update this page often, it was last updated on the 11th of
+            June 2026
         </p><br /><br />
 
         <h2>Completed Projects</h2>
@@ -100,4 +120,10 @@ import thisWebsite from "../../assets/this-website5.png";
     window.addEventListener("load", () => {
         window.unlockAchievement?.("VIEW_PROJECTS");
     });
+
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("tour") === "true") {
+        document.getElementById("tour3")?.classList.remove("hidden");
+    }
 </script>

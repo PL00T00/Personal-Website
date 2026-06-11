@@ -41,7 +41,7 @@ import Layout from "../layouts/Layout.astro";
 				This is the main home page! Other than a short description of
 				who I am it's pretty empty. It's like the bread of a sandwich,
 				or the pasta of a... pasta. Plain but vessels for more. (I'm
-				extremely hungry if you couldn't tell.) But now onto the meat
+				extremely hungry if you couldn't tell.)<br /> But now onto the meat
 				and sauce of the site!
 			</p>
 			<button
@@ -53,9 +53,7 @@ import Layout from "../layouts/Layout.astro";
 			<button
 				class="tourBtn"
 				onclick="
-					window.location.href='/projects/';
-					document.getElementById('tour3')?.classList.remove('hidden');
-					document.getElementById('tour2')?.classList.add('hidden')"
+					window.location.href='/projects/?tour=true';"
 				>The Sauce!</button
 			>
 		</div>
@@ -97,7 +95,7 @@ import Layout from "../layouts/Layout.astro";
 		});
 
 		function runReviewer() {
-			document.getElementById("tour1")?.classList.remove("hidden");
+			window.location.replace("jamesite.dino.icu/?tour=1");
 			console.log("IT WORKS");
 		}
 
@@ -126,5 +124,17 @@ import Layout from "../layouts/Layout.astro";
 				runPigeon();
 			}
 		});
+
+		const params = new URLSearchParams(window.location.search);
+
+		if (params.get("tour") === "1") {
+			document.getElementById("tour1")?.classList.remove("hidden");
+			document.getElementById("tour2")?.classList.add("hidden");
+		}
+
+		if (params.get("tour") === "2") {
+			document.getElementById("tour2")?.classList.remove("hidden");
+			document.getElementById("tour1")?.classList.add("hidden");
+		}
 	</script>
 </Layout>
