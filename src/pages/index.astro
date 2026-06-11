@@ -9,6 +9,26 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
 	<div id="welcome" class="page">
+		<div id="tour1" class="tour hidden">
+			<h1>Hey reviewer!</h1>
+			<br />
+			<br />
+			<p>
+				Welcome to the Journal of Jame!<br /> I'm going to show you around,
+				giving you some background to the site!<br />If you want to
+				explore at your own pace, feel free to close the tour. You can
+				always get this dialogue back by typing "reviewer" on the home
+				page.
+			</p>
+			<br /><br />
+			<button
+				id="closeTour"
+				class="tourBtn"
+				onclick="document.getElementById('tour1')?.classList.add('hidden')"
+				>Close Tour</button
+			>
+		</div>
+
 		<h1><strong><em>Welcome to the real Journal of Jame</em></strong></h1>
 		<br />
 		<br />
@@ -47,7 +67,7 @@ import Layout from "../layouts/Layout.astro";
 	});
 
 	function runReviewer() {
-		document.getElementById("guidedTour1")?.classList.remove("hidden");
+		document.getElementById("tour1")?.classList.remove("hidden");
 		console.log("IT WORKS");
 	}
 

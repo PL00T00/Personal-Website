@@ -150,3 +150,25 @@ main {
     width: 25%;
     border-radius: 10px;
 }
+
+.hidden {
+    display: none;
+}
+
+.tour {
+    background-color: #252121d1;
+    border-radius: 10px;
+    opacity: 100%;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+    height: 35%;
+}
+
+.tourBtn {
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 30px;
+    cursor: pointer;
+}
