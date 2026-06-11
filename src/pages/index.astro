@@ -77,7 +77,17 @@ import Layout from "../layouts/Layout.astro";
 			console.log("IT WORKS");
 		}
 
+		function runPigeon() {
+			window.unlockAchievement?.("TYPE_PIGEON");
+
+			setTimeout(() => {
+				document.body.innerText =
+					"Pigeon (yes, this is intentional, reload the site if you don't like pigeons)";
+			}, 1000);
+		}
+
 		const reviewCode = "REVIEWER";
+		const pigeonCode = "PIGEON";
 		let keyPresses = "";
 
 		document.addEventListener("keydown", (e) => {
@@ -86,6 +96,10 @@ import Layout from "../layouts/Layout.astro";
 			if (keyPresses.endsWith(reviewCode)) {
 				runReviewer();
 				window.unlockAchievement?.("REVIEWER");
+			}
+
+			if (keyPresses.endsWith(pigeonCode)) {
+				runPigeon();
 			}
 		});
 	</script>
