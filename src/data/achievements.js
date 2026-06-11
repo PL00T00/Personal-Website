@@ -20,6 +20,6 @@ export const ACHIEVEMENTS = {
     REVIEWER: {
         id: "REVIEWER",
         title: "🫶 Thankyou for your Service",
-        desc: "You should like tottally acccept this project"
+        desc: "You should like totally acccept this project"
     },
 };
