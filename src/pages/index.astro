@@ -27,6 +27,13 @@ import Layout from "../layouts/Layout.astro";
 				onclick="document.getElementById('tour1')?.classList.add('hidden')"
 				>Close Tour</button
 			>
+			<button
+				id="tour2"
+				class="tourBtn"
+				onclick="document.getElementById('tour2')?.classList.remove('hidden'); document.getElementById('tour1')?.classList.add('hidden')"
+			>
+				Next!</button
+			>
 		</div>
 
 		<h1><strong><em>Welcome to the real Journal of Jame</em></strong></h1>
@@ -59,27 +66,27 @@ import Layout from "../layouts/Layout.astro";
 		I'm still vey new to website development so expect this site to be buggy!<br
 		/><br /><br /><br /><br /><br /><br /><br /><br />
 	</div>
-</Layout>
 
-<script>
-	window.addEventListener("load", () => {
-		window.unlockAchievement?.("FIRST_VISIT");
-	});
+	<script>
+		window.addEventListener("load", () => {
+			window.unlockAchievement?.("FIRST_VISIT");
+		});
 
-	function runReviewer() {
-		document.getElementById("tour1")?.classList.remove("hidden");
-		console.log("IT WORKS");
-	}
-
-	const reviewCode = "REVIEWER";
-	let keyPresses = "";
-
-	document.addEventListener("keydown", (e) => {
-		keyPresses += e.key.toUpperCase();
-
-		if (keyPresses.endsWith(reviewCode)) {
-			runReviewer();
-			window.unlockAchievement?.("REVIEWER");
+		function runReviewer() {
+			document.getElementById("tour1")?.classList.remove("hidden");
+			console.log("IT WORKS");
 		}
-	});
-</script>
+
+		const reviewCode = "REVIEWER";
+		let keyPresses = "";
+
+		document.addEventListener("keydown", (e) => {
+			keyPresses += e.key.toUpperCase();
+
+			if (keyPresses.endsWith(reviewCode)) {
+				runReviewer();
+				window.unlockAchievement?.("REVIEWER");
+			}
+		});
+	</script>
+</Layout>
