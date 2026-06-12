@@ -176,19 +176,23 @@ main {
 
 #achievementList {
     display: grid;
+    grid-template-columns: repeat(6, 250px);
     gap: 1rem;
+
+    justify-content: center;
+    margin: 0 auto;
 }
 
 .achievement {
-    position: fixed;
+    width: 250px;
+    height: 200px;
+
     padding: 1rem;
     border-radius: 10px;
     background: #3a32ac;
     color: white;
-    width: 15%;
-    height: 20%;
-    margin: 20px;
 
+    box-sizing: border-box;
 }
 
 .locked {
