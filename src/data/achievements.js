@@ -22,4 +22,10 @@ export const ACHIEVEMENTS = {
         title: "🫶 Thankyou for your Service",
         desc: "You should like totally acccept this project"
     },
+
+    VIEW_ACHIEVEMENTS: {
+        id: "VIEW_ACHIEVEMENTS",
+        title: "🏆 Trophy Hunter",
+        desc: "PLEASE DO NOT TRY TO 100% THIS SITE!!111!!"
+    },
 };

@@ -4,11 +4,31 @@ import { ACHIEVEMENTS } from "../../data/achievements";
 ---
 
 <Layout>
+    <div id="tour5" class="tour">
+        <h1>Achievements!</h1>
+        <br />
+        <br />
+        <p>
+            This is my sites achievement system! If you were watching you
+            would've noticed you got one when you first visited the site, when
+            you started the tour and when you visited the projects page. You
+            also just got one! When you get an achievement a small pop-up shows
+            up in the bottom right of the screen and you get a browser cookie.
+            Then when you visit this page it looks through the browser cookies
+            for any cookies that relate to achievements, it then removes the
+            locked class from the div which is what makes it grey. <br />
+            I spent so long working all of this out and there was many iterations.
+        </p>
+    </div>
     <h1>Achievements</h1>
 
     <div id="achievementList"></div>
 
     <script is:inline define:vars={{ ACHIEVEMENTS }}>
+        window.addEventListener("load", () => {
+            window.unlockAchievement?.("VIEW_ACHIEVEMENTS");
+        });
+
         function getUnlocked() {
             const cookie = document.cookie
                 .split(";")
@@ -40,5 +60,11 @@ import { ACHIEVEMENTS } from "../../data/achievements";
 
             container.appendChild(div);
         });
+
+        const params = new URLSearchParams(window.location.search);
+
+        if (params.get("tour") === "5") {
+            document.getElementById("tour5")?.classList.remove("hidden");
+        }
     </script>
 </Layout>
