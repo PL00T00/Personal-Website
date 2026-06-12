@@ -207,3 +207,8 @@ input {
     background-color: #3a32ac85;
     color: #ffffff;
 }
+
+.navBtn.active {
+    color: #c8c5f57b;
+    text-decoration: dotted;
+}

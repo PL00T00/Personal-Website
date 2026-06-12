@@ -1,7 +1,30 @@
+---
+const path = Astro.url.pathname;
+---
+
 <div class="navbar">
-    <a id="homeBtn" class="navBtn" href="/">Home</a>
-    <a href="/projects/" class="navBtn">Projects</a>
-    <a href="/achievements/" class="navBtn">Achievements</a>
-    <a id="contactBtn" class="navBtn" href="/contact/">Contact</a>
-    <h2 id="title">Journal of Jame</h2>
+    <a href="/" class:list={{ navBtn: true, active: path === "/" }}> Home </a>
+
+    <a
+        href="/projects/"
+        class:list={{ navBtn: true, active: path === "/projects/" }}
+    >
+        Projects
+    </a>
+
+    <a
+        href="/achievements/"
+        class:list={{ navBtn: true, active: path === "/achievements/" }}
+    >
+        Achievements
+    </a>
+
+    <a
+        href="/contact/"
+        class:list={{ navBtn: true, active: path === "/contact/" }}
+    >
+        Contact
+    </a>
+
+    <h2>Journal of Jame</h2>
 </div>
