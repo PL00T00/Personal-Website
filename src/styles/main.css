@@ -46,12 +46,12 @@ button {
 
 .navBtn:hover {
     text-decoration: none;
-    color: lightblue;
+    color: rgb(133, 184, 200);
 }
 
 .navBtn:active {
-    text-decoration: none;
-    color: blue;
+    text-decoration: dashed underline;
+    color: #2a284f;
 }
 
 
@@ -210,5 +210,5 @@ input {
 
 .navBtn.active {
     color: #c8c5f57b;
-    text-decoration: dotted;
+    text-decoration: dotted underline;
 }
