@@ -14,54 +14,59 @@ import blinky from "../../../assets/blinky.jpg";
             of the project, a short description and the related links like the
             github or tutorial. <br /> Personally I think the Resolution Hardware
             page is a good read, you should go check it out after the tour!<br
-            /><br />
+            /><br />Now lets have a look at the achievement system!
         </p>
-        <button class="tourBtn" onclick="window.location.replace()">
-            rwfsd</button
+        <button class="tourBtn" onclick="window.location.replace('../?tour=3')">
+            Projects</button
         >
+        <button
+            class="tourBtn"
+            onclick="window.location.replace('../../achievements/?tour=5')"
+            >Achievements</button
+        >< div>
+        <div class="projectPage">
+            <h1>Blinky Board</h1>
+            <img
+                src={blinky.src}
+                alt="Relatively good blinky board"
+                class="largeProjectImg"
+            />
+            <p>
+                While this blinky board looks like... well... shit I choose to
+                keep it and show it off for a number of reasons. The main reason
+                being it was one of my first projects that I chose to do.
+                <br /><br />
+                It was made for Hack Club's Blueprint a hardware-based YSWS with a
+                bunch of guides for beginners. While my current device couldn't handle
+                Kicad it could definetely handle easyEDA so when they released the
+                easyEDA version of the blinky guide, I did it almost instantly. The
+                guide was full of mistakes but with a bit of asking on slack and googling
+                I was able to complete the tutorial and get the project approved.<br
+                /><br />
+                After a lot of problems soldering and a lot of dm's sent to Jay, I
+                finished the project.<br />
+                <br /> I was already addicted to hardware, and I had only just started.
+            </p>
+            <br />
+            <h4>Programs and Links:</h4><br /><br />
+            <a
+                href="https://blueprint.hackclub.com/projects/1167"
+                target="_blank"
+                rel="noopener noreferrer">Blueprint!</a
+            >
+            <a
+                href="https://github.com/PL00T00/555-Blinker-board"
+                target="_blank"
+                rel="noopener noreferrer">Github!</a
+            >
+        </div>
+        <br /><br /><br />
     </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
 
-    <div class="projectPage">
-        <h1>Blinky Board</h1>
-        <img
-            src={blinky.src}
-            alt="Relatively good blinky board"
-            class="largeProjectImg"
-        />
-        <p>
-            While this blinky board looks like... well... shit I choose to keep
-            it and show it off for a number of reasons. The main reason being it
-            was one of my first projects that I chose to do.
-            <br /><br />
-            It was made for Hack Club's Blueprint a hardware-based YSWS with a bunch
-            of guides for beginners. While my current device couldn't handle Kicad
-            it could definetely handle easyEDA so when they released the easyEDA version
-            of the blinky guide, I did it almost instantly. The guide was full of
-            mistakes but with a bit of asking on slack and googling I was able to
-            complete the tutorial and get the project approved.<br /><br />
-            After a lot of problems soldering and a lot of dm's sent to Jay, I finished
-            the project.<br />
-            <br /> I was already addicted to hardware, and I had only just started.
-        </p>
-        <br />
-        <h4>Programs and Links:</h4><br /><br />
-        <a
-            href="https://blueprint.hackclub.com/projects/1167"
-            target="_blank"
-            rel="noopener noreferrer">Blueprint!</a
-        >
-        <a
-            href="https://github.com/PL00T00/555-Blinker-board"
-            target="_blank"
-            rel="noopener noreferrer">Github!</a
-        >
-    </div>
-    <br /><br /><br />
+        if (params.get("tour") === "4") {
+            document.getElementById("tour4")?.classList.remove("hidden");
+        }
+    </script>
 </Layout>
-<script>
-    const params = new URLSearchParams(window.location.search);
-
-    if (params.get("tour") === "4") {
-        document.getElementById("tour4")?.classList.remove("hidden");
-    }
-</script>
