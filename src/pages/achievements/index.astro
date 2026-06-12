@@ -1,0 +1,24 @@
+---
+import { ACHIEVEMENTS } from "../../data/achievements";
+const unlocked = JSON.parse(Astro.cookies.get("achievements")?.value || "[]");
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+    <h1>Achievements</h1>
+
+    <div class="achievementGrid">
+        {
+            Object.values(ACHIEVEMENTS).map((achievement) => (
+                <div
+                    class={`achievement ${
+                        unlocked.includes(achievement.id) ? "" : "locked"
+                    }`}
+                >
+                    <h2>{achievement.title}</h2>
+                    <p>{achievement.desc}</p>
+                </div>
+            ))
+        }
+    </div>
+</Layout>
