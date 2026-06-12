@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import MailingList from "../../components/MailingList.astro";
 ---
 
 <Layout>
@@ -10,8 +11,13 @@ import Layout from "../../layouts/Layout.astro";
                 class="contactLink">Slack</a
         >
         <a href="mailto:jamesferris447@gmail.com" class="contactLink">E-mail</a>
-        <a href="https://discord.gg/nRUsN4pZ" class="contactLink">Discord</a>
-        <br /><br /><br />
 
-        <h3>Platforms I rarely use:</h3>
+        <p>uhh.. yeah, that's really the only two ways to message me rn</p><br
+        /><br />
+        <h3>Join my mailing list!</h3><br />
+        <p>
+                I send weekly emails about cool stuff happening in the tech
+                world and promote stuff I belive in!
+        </p>
+        <MailingList />
 </Layout>
