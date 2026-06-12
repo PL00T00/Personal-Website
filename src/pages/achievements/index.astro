@@ -1,24 +1,44 @@
 ---
-import { ACHIEVEMENTS } from "../../data/achievements";
-const unlocked = JSON.parse(Astro.cookies.get("achievements")?.value || "[]");
 import Layout from "../../layouts/Layout.astro";
+import { ACHIEVEMENTS } from "../../data/achievements";
 ---
 
 <Layout>
     <h1>Achievements</h1>
 
-    <div class="achievementGrid">
-        {
-            Object.values(ACHIEVEMENTS).map((achievement) => (
-                <div
-                    class={`achievement ${
-                        unlocked.includes(achievement.id) ? "" : "locked"
-                    }`}
-                >
-                    <h2>{achievement.title}</h2>
-                    <p>{achievement.desc}</p>
-                </div>
-            ))
+    <div id="achievementList"></div>
+
+    <script is:inline define:vars={{ ACHIEVEMENTS }}>
+        function getUnlocked() {
+            const cookie = document.cookie
+                .split(";")
+                .find((c) => c.trim().startsWith("unlocked_achievement="));
+
+            if (!cookie) return [];
+
+            try {
+                return JSON.parse(decodeURIComponent(cookie.split("=")[1]));
+            } catch {
+                return [];
+            }
         }
-    </div>
+
+        const unlocked = getUnlocked();
+        const container = document.getElementById("achievementList");
+
+        Object.values(ACHIEVEMENTS).forEach((achievement) => {
+            const div = document.createElement("div");
+
+            const isUnlocked = unlocked.includes(achievement.id);
+
+            div.className = isUnlocked ? "achievement" : "achievement locked";
+
+            div.innerHTML = `
+            <h2>${achievement.title}</h2>
+            <p>${achievement.desc}</p>
+            `;
+
+            container.appendChild(div);
+        });
+    </script>
 </Layout>

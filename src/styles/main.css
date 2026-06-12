@@ -173,3 +173,25 @@ main {
     margin-right: 100px;
     margin-left: 100px;
 }
+
+#achievementList {
+    display: grid;
+    gap: 1rem;
+}
+
+.achievement {
+    position: fixed;
+    padding: 1rem;
+    border-radius: 10px;
+    background: #3a32ac;
+    color: white;
+    width: 15%;
+    height: 20%;
+    margin: 20px;
+
+}
+
+.locked {
+    filter: grayscale(100%);
+    opacity: 0.4;
+}
