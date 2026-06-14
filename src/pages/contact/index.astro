@@ -4,6 +4,82 @@ import MailingList from "../../components/MailingList.astro";
 ---
 
 <Layout>
+        <div id="tour6" class="tour hidden">
+                <h1>Contact!</h1>
+                <br />
+                <br />
+                <p>
+                        This page I spent very little time on cause truly, I
+                        doubt anyone will be using it. I'm not notable enough to
+                        have people want to contact me. One notable thing on
+                        this page though is the sign up form to my newsletter.
+                        It sends the responses to a site called forminnit which
+                        then adds the responses to a list and emails me. I
+                        thought that was pretty cool.
+                </p>
+                <button
+                        class="tourBtn"
+                        onclick="window.location.replace('achievements/?tour=5')"
+                        >Back</button
+                >
+                <button
+                        class="tourBtn"
+                        onclick="window.location.replace('?tour=7')"
+                        >The other stuff</button
+                >
+        </div>
+        <div id="tour7" class="tour hidden">
+                <h1>The other stuff</h1><br /><br />
+                <p>
+                        And now for all the other cool things on the site. Have
+                        a look at the navbar! That shows up on every page thanks
+                        to Astro! It's just a bunch of hyperlinks but without it
+                        the site is pretty much useless. Notice how the contact
+                        button looks different? That happens to the page your on
+                        currently. It's a small change but I think it makes the
+                        site feel completely different. It adds a responsive
+                        feeling to the whole page I feel.
+                </p>
+                <button
+                        class="tourBtn"
+                        onclick="window.location.replace('?tour=6')"
+                >
+                        Contactino</button
+                >
+                <button
+                        class="tourBtn"
+                        onclick="window.location.replace('?tour=8')"
+                >
+                        More of the other stuff</button
+                >
+        </div>
+        <div id="tour8" class="tour hidden">
+                <h1>More nicheness</h1><br /><br />
+                <p>
+                        Look at the background, quite slick wouldn't you say? It
+                        also took me like 2 minutes to implement and adjust to
+                        my liking but it makes a huge difference to the site. It
+                        removes the nothingness from the empty space and adds
+                        texture. Infact I would say it helps people focus on the
+                        text.<br />
+                        <br />
+                        But hey! That's all I got for you right now. I hope you emjoyed
+                        the tour and the website. Thanks for the work you do, reviewer!
+                </p>
+                <button
+                        class="tourBtn"
+                        onclick="window.location.replace('?tour=7')"
+                >
+                        Back</button
+                >
+
+                <button
+                        class="tourBtn"
+                        onclick="window.location.replace('../')"
+                >
+                        Back Home!</button
+                >
+        </div>
         <h1><strong><em> Get in contact with me!</em></strong></h1><br /><br />
         <h3>Platforms I use:</h3>
         <a
@@ -11,7 +87,6 @@ import MailingList from "../../components/MailingList.astro";
                 class="contactLink">Slack</a
         >
         <a href="mailto:jamesferris447@gmail.com" class="contactLink">E-mail</a>
-
         <p>uhh.. yeah, that's really the only two ways to message me rn</p><br
         /><br />
         <h3>Join my mailing list!</h3><br />
@@ -21,3 +96,18 @@ import MailingList from "../../components/MailingList.astro";
         </p>
         <MailingList />
 </Layout>
+<script>
+        const params = new URLSearchParams(window.location.search);
+
+        if (params.get("tour") === "6") {
+                document.getElementById("tour6")?.classList.remove("hidden");
+        }
+
+        if (params.get("tour") === "7") {
+                document.getElementById("tour7")?.classList.remove("hidden");
+        }
+
+        if (params.get("tour") === "8") {
+                document.getElementById("tour8")?.classList.remove("hidden");
+        }
+</script>
