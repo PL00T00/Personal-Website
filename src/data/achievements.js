@@ -28,4 +28,10 @@ export const ACHIEVEMENTS = {
         title: "🏆 Trophy Hunter",
         desc: "PLEASE DO NOT TRY TO 100% THIS SITE!!111!!"
     },
+
+    WAIT_AN_HOUR: {
+        id: "WAIT_AN_HOUR",
+        title: "🕛 True friend",
+        desc: "If your not bored by that, hit me up!"
+    }
 };
