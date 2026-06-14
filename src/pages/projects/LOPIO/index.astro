@@ -1,0 +1,27 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import LOPIO from "../../../assets/lopio.png";
+---
+
+<Layout>
+    <a href="/projects/" class="backToBtn">Back to Projects</a>
+
+    <div class="projectPage">
+        <h1>LOPIO</h1>
+        <img src={LOPIO.src} alt="Cool ass slack bot" class="largeProjectImg" />
+        <p>
+            After getting bored of making this website but still needing hours
+            for Horizons I decided to make a Slack bot for the channel that
+            should've been dead - LOPIO. The premise of LOPIO was simple, a
+            slack channel holds one person and one person only. The person sends
+            one message, adds someone else, then leaves. <br /><br />The channel
+            was doomed to fail from the start. If someone left the channel and
+            didnt add anyone else or added a bot (like gork maybe) the channel
+            would delete itself. After realising this I decided to make a bot to
+            ensure it stays alive. But I had one problem, I wasn't in the
+            original channel. So i started following the trail, dming people and
+            asking who they added. After messaging around 30 people I had the
+            channel!
+        </p>
+    </div>
+</Layout>
