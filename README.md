@@ -1,46 +1,18 @@
-# Astro Starter Kit: Basics
+<h1> Jamesite! </h1>
+<br>
+<br>
+<p>The personal website of Jame - a self-proclaimed web-dev master (they're truly not...) The websites quite simple actually, infact with Ingo and google I doubt there would be any web pages...</p>
 
-```sh
-bun create astro@latest -- --template basics
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+<h2>Features</h2>
+<br><br>
+<h3>The Home Page</h3>
+<br>
+<p> A sub-par home page with very little information or any call to action. The only page you can use codes (like typing "pigeon".) And where they decide is the best place to put information about themself? Who even is this <strong>narcissist?!?</strong></p><br><br>
+<h3>The Projects Page</h3>
+<br>
+<p>The place to read up about Jame's projects (like anybody would want to do <em>that.</em>) There's isn't even anything else on the page, may aswell just ignore it.</p>
+<br><br>
+<h3>The Achievements Page</h3><br>
+<p>The only good page on this site, see what achievements you still need to unlock. Perhaps you could 100% the site? I doubt you want to spend that much time on it though, you might accidentally learn about this loser!</p><br><br>
+<h3>The Contact page</h3><br>
+<p>You can ignore this one, you truly don't want to contact this weirdo. And definetely don't join the newsletter, do you really want this guy flooding your inbox?</p>
