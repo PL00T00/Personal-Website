@@ -16,3 +16,6 @@
 <p>The only good page on this site, see what achievements you still need to unlock. Perhaps you could 100% the site? I doubt you want to spend that much time on it though, you might accidentally learn about this loser!</p><br><br>
 <h3>The Contact page</h3><br>
 <p>You can ignore this one, you truly don't want to contact this weirdo. And definetely don't join the newsletter, do you really want this guy flooding your inbox?</p>
+
+<br><br><br>
+<p> so yeah, dont even bother going to this losers website, it sucks.</p>
