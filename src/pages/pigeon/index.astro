@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Pigeon from "../../assets/bpPigeon.png";
+import Truth from "../../assets/governmentPork.png";
 ---
 
 <Layout>
@@ -46,7 +47,12 @@ import Pigeon from "../../assets/bpPigeon.png";
         data-id="6"
         style="filter:blur(3px); top:10px;"
     />
-    <img src={Pigeon.src} class="pigeon" data-id="7" style="position: ;" />
+    <img
+        src={Pigeon.src}
+        class="pigeon"
+        data-id="7"
+        style="top:883px; left:975px; width:15px"
+    />
     <img src={Pigeon.src} class="pigeon" data-id="8" style="position: ;" />
     <img src={Pigeon.src} class="pigeon" data-id="9" style="position: ;" />
     <img src={Pigeon.src} class="pigeon" data-id="10" style="position: ;" />
@@ -101,8 +107,10 @@ import Pigeon from "../../assets/bpPigeon.png";
         pork that the government has injected with tiny robots that can control your
         mind. The government uses these robots to make you beleive that chickens are
         birds. I haven't eaten government pork in years, they've lost control of me.
-        IM FREE. <strong>IM FREE. </strong><strong><em>IM FREE!</em></strong>
+        IM FREE. <strong>IM FREE. </strong><strong><em>IM FREE!</em></strong><br
+        /><br />
     </p>
+    <img src={Truth.src} />
     <div id="counter">Pigeons found: 0 / 20!</div>
 </Layout>
 <script>
