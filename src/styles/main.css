@@ -212,3 +212,26 @@ input {
     color: #c8c5f57b;
     text-decoration: dotted underline;
 }
+
+.pigeon {
+    position: absolute;
+    width: 40px;
+    cursor: pointer;
+}
+
+.pigeon:hover {
+    transform: scale(1.2);
+}
+
+.pigeon.found {
+    display: none;
+}
+
+#counter {
+    display: block;
+    background-color: #d3d3d36b;
+    position: fixed;
+    bottom: 10px;
+    border-radius: 10px;
+    width: 120px;
+}

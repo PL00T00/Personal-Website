@@ -1,0 +1,69 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Pigeon from "../../assets/bpPigeon.png";
+---
+
+<Layout>
+    <h1><strong><em>PIGEON!</em></strong></h1>
+    <br />
+    <br />
+    <p>
+        If you haven't noticed already, I kinda like pigeons. This is a page
+        about pigeons. While you are learing about the best bird, try and find
+        all 20 hidden pigeons, you'll get a very secret achievement if you do!
+        <br />
+        <br />
+        Look, theres one right there!
+    </p>
+    <img src={Pigeon.src} class="pigeon" data-id="1" />
+    <br /><br /><br />
+    <p>
+        Oh and I know very little actual information about pigeons and I'm way
+        too egotistical to google anything. Enjoy!
+    </p>
+    <div id="counter">Pigeons found: 0 / 20!</div>
+</Layout>
+<script>
+    const found = new Set(
+        JSON.parse(localStorage.getItem("foundPigeons") || "[]"),
+    );
+
+    const counter = document.getElementById("counter");
+
+    function updateCounter() {
+        counter.textContent = `Pigeons found: ${found.size} /20!`;
+
+        if (found.size === 1) {
+            window.unlockAchievement?.("ONE_PIGEON");
+        }
+
+        if (found.size === 10) {
+            window.unlockAchievement?.("TEN_PIGEONS");
+        }
+
+        if (found.size === 20) {
+            window.unlockAchievement?.("ALL_PIGEONS");
+        }
+    }
+
+    document.querySelectorAll(".pigeon").forEach((pigeon) => {
+        const id = pigeon.dataset.id;
+
+        if (found.has(id)) {
+            pigeon.classList.add("found");
+        }
+
+        pigeon.addEventListener("click", () => {
+            if (found.has(id)) return;
+
+            found.add(id);
+            pigeon.classList.add("found");
+
+            localStorage.setItem("foundPigeons", JSON.stringify([...found]));
+
+            updateCounter();
+        });
+    });
+
+    updateCounter();
+</script>

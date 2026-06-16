@@ -33,5 +33,23 @@ export const ACHIEVEMENTS = {
         id: "WAIT_AN_HOUR",
         title: "🕛 True friend",
         desc: "If your not bored by that, hit me up!"
-    }
+    },
+
+    ONE_PIGEON: {
+        id: "ONE_PIGEON",
+        title: "🫥 Pigeon searcher",
+        desc: "Keep searching!"
+    },
+
+    TEN_PIGEONS: {
+        id: "TEN_PIGEONS",
+        title: "😶‍🌫️ Pigeon finder",
+        desc: "Halfway there!"
+    },
+
+    ALL_PIGEONS: {
+        id: "ALL_PIGEONS",
+        title: "🔍 Pigeon detective",
+        desc: "Now, go find real pigeons! (and send me photos pls)"
+    },
 };

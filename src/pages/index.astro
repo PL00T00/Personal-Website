@@ -103,8 +103,7 @@ import Layout from "../layouts/Layout.astro";
 			window.unlockAchievement?.("TYPE_PIGEON");
 
 			setTimeout(() => {
-				document.body.innerText =
-					"Pigeon (yes, this is intentional, reload the site if you don't like pigeons)";
+				document.location.replace("/pigeon/");
 			}, 1000);
 		}
 
