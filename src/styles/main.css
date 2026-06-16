@@ -220,7 +220,7 @@ input {
 }
 
 .pigeon:hover {
-    transform: scale(1.2);
+    width: 50px;
 }
 
 .pigeon.found {
