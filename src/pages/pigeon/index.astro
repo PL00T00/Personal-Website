@@ -74,7 +74,7 @@ import Truth from "../../assets/governmentPork.png";
         src={Pigeon.src}
         class="pigeon secretPigeon"
         data-id="10"
-        style="top:500px; left: 20p0x"
+        style="top:500px; left: 20px"
     />
     <img
         src={Pigeon.src}
@@ -82,8 +82,18 @@ import Truth from "../../assets/governmentPork.png";
         data-id="11"
         style="left:500px; top:500px; transform:scale(1.5)"
     />
-    <img src={Pigeon.src} class="pigeon" data-id="12" style="" />
-    <img src={Pigeon.src} class="pigeon" data-id="13" style="" />
+    <img
+        src={Pigeon.src}
+        class="pigeon nightPigeon"
+        data-id="12"
+        style="display: none; top:10px;"
+    />
+    <img
+        src={Pigeon.src}
+        class="pigeon"
+        data-id="13"
+        style="left:5000px; transform:scale(5)"
+    />
     <img src={Pigeon.src} class="pigeon" data-id="14" style="" />
     <img src={Pigeon.src} class="pigeon" data-id="15" style="" />
     <img src={Pigeon.src} class="pigeon" data-id="16" style="" />
@@ -210,4 +220,8 @@ import Truth from "../../assets/governmentPork.png";
             pigeonRun.style.top = `${y}px`;
         }
     });
+
+    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+        document.querySelector(".nightPigeon").style.display = "block";
+    }
 </script>
