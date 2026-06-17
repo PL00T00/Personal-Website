@@ -235,3 +235,11 @@ input {
     border-radius: 10px;
     width: 120px;
 }
+
+.secretPigeon {
+    opacity: 0;
+}
+
+.secretPigeon:hover {
+    opacity: 1;
+}
