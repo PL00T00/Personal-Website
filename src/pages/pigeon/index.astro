@@ -56,13 +56,13 @@ import Truth from "../../assets/governmentPork.png";
         src={Pigeon.src}
         class="pigeon"
         data-id="7"
-        style="top:883px; left:975px; width:15px"
+        style="top:989px; left:975px; width:15px"
     />
     <img
         src={Pigeon.src}
         class="pigeon"
         data-id="8"
-        style="left: 5000px; transform:scale(3)"
+        style="left: 50000px; transform:scale(3)"
     />
     <img
         src={Pigeon.src}
@@ -76,7 +76,12 @@ import Truth from "../../assets/governmentPork.png";
         data-id="10"
         style="top:500px; left: 20p0x"
     />
-    <img src={Pigeon.src} class="pigeon" data-id="11" style="" />
+    <img
+        src={Pigeon.src}
+        class="pigeon pigeonRun"
+        data-id="11"
+        style="left:500px; top:500px; transform:scale(1.5)"
+    />
     <img src={Pigeon.src} class="pigeon" data-id="12" style="" />
     <img src={Pigeon.src} class="pigeon" data-id="13" style="" />
     <img src={Pigeon.src} class="pigeon" data-id="14" style="" />
@@ -125,7 +130,7 @@ import Truth from "../../assets/governmentPork.png";
         birds. The government tried to hide this by gaslighting people into thinking
         they are made of chicken. But the meat commonly called chicken is actually
         pork that the government has injected with tiny robots that can control your
-        mind. The government uses these robots to make you beleive that chickens are
+        mind. The government uses these robots to make you believe that chickens are
         birds. I haven't eaten government pork in years, they've lost control of me.
         IM FREE. <strong>IM FREE. </strong><strong><em>IM FREE!</em></strong><br
         /><br />
@@ -176,4 +181,33 @@ import Truth from "../../assets/governmentPork.png";
     });
 
     updateCounter();
+
+    const pigeonRun = document.querySelector(".pigeonRun");
+
+    let x = 500;
+    let y = 500;
+
+    document.addEventListener("mousemove", (e) => {
+        const rect = pigeonRun?.getBoundingClientRect();
+
+        const dx = rect.left - e.clientX;
+        const dy = rect.top - e.clientY;
+
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 100) {
+            const angle = Math.atan2(dy, dx);
+
+            const speed = 30;
+
+            x += Math.cos(angle) * speed;
+            y += Math.sin(angle) * speed;
+
+            x = Math.max(0, Math.min(window.innerWidth - 40, x));
+            y = Math.max(0, Math.min(window.innerHeight - 40, y));
+
+            pigeonRun.style.left = `${x}px`;
+            pigeonRun.style.top = `${y}px`;
+        }
+    });
 </script>
