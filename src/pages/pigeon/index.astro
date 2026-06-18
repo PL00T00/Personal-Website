@@ -94,7 +94,12 @@ import Truth from "../../assets/governmentPork.png";
         data-id="13"
         style="left:5000px; transform:scale(5)"
     />
-    <img src={Pigeon.src} class="pigeon paramPigeon" data-id="14" style="" />
+    <img
+        src={Pigeon.src}
+        class="pigeon paramPigeon"
+        data-id="14"
+        style="left:30px; top:50px;"
+    />
     <img src={Pigeon.src} class="pigeon" data-id="15" style="" />
     <img src={Pigeon.src} class="pigeon" data-id="16" style="" />
     <img src={Pigeon.src} class="pigeon" data-id="17" style="" />
@@ -156,6 +161,7 @@ import Truth from "../../assets/governmentPork.png";
     const counter = document.getElementById("counter");
 
     function updateCounter() {
+        if (!counter) return;
         counter.textContent = `Pigeons found: ${found.size} /20!`;
 
         if (found.size === 1) {
@@ -193,11 +199,12 @@ import Truth from "../../assets/governmentPork.png";
     updateCounter();
 
     const pigeonRun = document.querySelector(".pigeonRun");
-
-    let x = 500;
-    let y = 500;
+    const rect0 = pigeonRun?.getBoundingClientRect();
+    let x = rect0.left;
+    let y = rect0.top;
 
     document.addEventListener("mousemove", (e) => {
+        if (!pigeonRun) return;
         const rect = pigeonRun?.getBoundingClientRect();
 
         const dx = rect.left - e.clientX;
@@ -223,5 +230,11 @@ import Truth from "../../assets/governmentPork.png";
 
     if (window.matchMedia("(prefers-color-scheme: light)").matches) {
         document.querySelector(".nightPigeon")?.classList.remove("nightPigeon");
+    }
+
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("pigeon") === "cool") {
+        document.querySelector(".paramPigeon")?.classList.remove("paramPigeon");
     }
 </script>
