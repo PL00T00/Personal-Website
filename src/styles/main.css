@@ -243,3 +243,7 @@ input {
 .secretPigeon:hover {
     opacity: 1;
 }
+
+.nightPigeon {
+    display: none;
+}
