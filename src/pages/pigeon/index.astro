@@ -98,9 +98,14 @@ import Truth from "../../assets/governmentPork.png";
         src={Pigeon.src}
         class="pigeon paramPigeon"
         data-id="14"
-        style="left:30px; top:50px;"
+        style="left:400px; top:2500px; transform:scale(4.7)"
     />
-    <img src={Pigeon.src} class="pigeon" data-id="15" style="" />
+    <img
+        src={Pigeon.src}
+        class="pigeon lookerPigeon"
+        data-id="15"
+        style="left:700px; top:2500px; transform:scale(4.7);"
+    />
     <img src={Pigeon.src} class="pigeon" data-id="16" style="" />
     <img src={Pigeon.src} class="pigeon" data-id="17" style="" />
     <img src={Pigeon.src} class="pigeon" data-id="18" style="" />
@@ -108,47 +113,8 @@ import Truth from "../../assets/governmentPork.png";
     <img src={Pigeon.src} class="pigeon" data-id="20" style="" />
     <br /><br /><br />
     <p style="font-size:large">
-        Oh and I know very little actual information about pigeons and I'm way
-        too egotistical to google anything. Enjoy!<br /><br />
-        So pigeons are actually one of the best animals. This is because they are
-        actually quite intelligent have very few tasks in life. Pigeons are just cute
-        little bystanders to life. They have very few motives for murder and enjoy
-        driving buses.<br /><br />
-        Pigeons probably live to around 15 years old based on the vibes they give
-        off. Due to the almost domestication of the species has lead them to live
-        shorter but happier lives. Most die to natural causes from the city air they
-        breathe in and the significant lack of major predators. Pigeons also commonly
-        die from an issue commonly called 'string foot' which occurs when a poor little
-        pigeon gets their feet stuck in string, hair or some other material on the
-        ground. This then tangles around their foot and can stop walking, cause deformities
-        and restrict blood flow depending on severity. The only way to stop this is
-        to keep city streets clean and if you see a pigeon with string foot to save
-        it by removing the material around it's foot.<br /><br />
-        Pigeon's main habitat has become cities and related areas. This is so they
-        can get the attention they deserve. But this comes with the large downside
-        of humans. Unfortuanetely not everyone understands how cool pigeons are and/or
-        are extremely jealous of how cool they are. This means they face discrimination
-        daily. People abuse them every hour of the day and no one bats an eye. Luckily
-        living in cities comes with major upsides that out-weigh the abusive behavour
-        they have to deal with. One large upside is the amount of buses they are able
-        to see drive past. It's very common knowledge that pigeons want to drive the
-        bus but unfortuanetely huamns hate them and don't allow them to drive the
-        bus. But the next best thing is being able to watch the busses drive past
-        constantly. It is kinda cruel to show them their life's goal drive past every
-        day but life is cruel I guess. <br /><br />
-        Some people say pigeons are secretely government spy robots but they actually
-        aren't. The idea that pigeons are robots came from the misconception that
-        baby pigeons don't exist, but they actually do cause pigeons aren't robots.
-        The proof that pigeons aren't robot lies in the fact that if the government
-        did make them, they would be dumb and ungly. And therefore chickens are government
-        spy robots because they don't act like birds and look dumb. Chickens are dumb
-        birds. The government tried to hide this by gaslighting people into thinking
-        they are made of chicken. But the meat commonly called chicken is actually
-        pork that the government has injected with tiny robots that can control your
-        mind. The government uses these robots to make you believe that chickens are
-        birds. I haven't eaten government pork in years, they've lost control of me.
-        IM FREE. <strong>IM FREE. </strong><strong><em>IM FREE!</em></strong><br
-        /><br />
+        Some pigeons are easy to find, others not so much. Some only come out
+        when the page is visited in certain ways.
     </p>
     <img src={Truth.src} />
     <div id="counter">Pigeons found: 0 / 20!</div>
@@ -237,4 +203,36 @@ import Truth from "../../assets/governmentPork.png";
     if (params.get("pigeon") === "cool") {
         document.querySelector(".paramPigeon")?.classList.remove("paramPigeon");
     }
+
+    const lookerPigeon = document.querySelector(".lookerPigeon");
+
+    let idleTimer = null;
+
+    function hideLooker() {
+        if (!lookerPigeon) return;
+        lookerPigeon.style.opacity = "0";
+        lookerPigeon.style.pointerEvents = "none";
+    }
+
+    function showLooker() {
+        if (!lookerPigeon) return;
+        lookerPigeon.style.opacity = "1";
+        lookerPigeon.style.pointerEvents = "auto";
+    }
+
+    hideLooker();
+
+    function resetIdle() {
+        hideLooker();
+
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(() => {
+            showLooker();
+        }, 2000);
+    }
+
+    window.addEventListener("mousemove", resetIdle);
+    window.addEventListener("scroll", resetIdle);
+    window.addEventListener("keydown", resetIdle);
+    window.addEventListener("click", resetIdle);
 </script>
