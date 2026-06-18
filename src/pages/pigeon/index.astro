@@ -26,7 +26,7 @@ import Truth from "../../assets/governmentPork.png";
         src={Pigeon.src}
         class="pigeon"
         data-id="2"
-        style="top: 45px; left: 0px;"
+        style="top: -10px; left: 1800px; transform:scaleY(-1)"
     />
     <img
         src={Pigeon.src}
@@ -112,10 +112,26 @@ import Truth from "../../assets/governmentPork.png";
         data-id="16"
         style="left:1000px; top:2500px; transform:scale(4.7);"
     />
-    <img src={Pigeon.src} class="pigeon" data-id="17" style="" />
-    <img src={Pigeon.src} class="pigeon" data-id="18" style="" />
-    <img src={Pigeon.src} class="pigeon" data-id="19" style="" />
-    <img src={Pigeon.src} class="pigeon" data-id="20" style="" />
+    <img
+        src={Pigeon.src}
+        class="pigeon"
+        data-id="17"
+        style="top:1130px; left:850px; width:15px; filter:contrast(1000)"
+    />
+    <img src={Pigeon.src} class="pigeon" data-id="18" style="left:-25px;" />
+
+    <img
+        src={Pigeon.src}
+        class="pigeon"
+        data-id="19"
+        style="top:100px; left:37%; width: 500px; height: 20px; filter:contrast(10%)"
+    />
+    <img
+        src={Pigeon.src}
+        class="pigeon"
+        data-id="20"
+        style="position:fixed; filter:blur(5px);left:30px; border-radius:40px; width:30px;"
+    />
     <br /><br /><br />
     <p style="font-size:large; width:75%; margin: 0 auto;">
         Some pigeons are easy to find, others not so much. Some only come out
@@ -128,9 +144,8 @@ import Truth from "../../assets/governmentPork.png";
         Some other pigeons only come out in the light though, they are anti nocturnal.
         <br /><br />
         Pigeons are extremely trusting despite what some people think. If you spend
-        five minutes in their presence they truly open up and reveal themselves. Others
-        on the other hand just want you to pet them as soon as possible and then they
-        really open up, this pigeon loves being right up high!.<br /><br />
+        five minutes in their presence they truly open up and reveal themselves. But
+        one pigeon that enjoys being right up high just wants pets.<br /><br />
         Pigeons can actually fly extremely far, but only to the right. Going left
         just doesn't work.
     </p>
@@ -162,7 +177,9 @@ import Truth from "../../assets/governmentPork.png";
         }
     }
 
-    (document.querySelectorAll(".pigeon") as NodeListOf<HTMLImageElement>).forEach((pigeon) => {
+    (
+        document.querySelectorAll(".pigeon") as NodeListOf<HTMLImageElement>
+    ).forEach((pigeon) => {
         const id = pigeon.dataset.id;
 
         if (found.has(id)) {
@@ -223,7 +240,8 @@ import Truth from "../../assets/governmentPork.png";
         document.querySelector(".paramPigeon")?.classList.remove("paramPigeon");
     }
 
-    const lookerPigeon: HTMLImageElement  = document.querySelector(".lookerPigeon")!;
+    const lookerPigeon: HTMLImageElement =
+        document.querySelector(".lookerPigeon")!;
 
     let idleTimer = 0;
 
@@ -255,7 +273,8 @@ import Truth from "../../assets/governmentPork.png";
     window.addEventListener("keydown", resetIdle);
     window.addEventListener("click", resetIdle);
 
-    const timedPigeon: HTMLImageElement = document.querySelector(".timedPigeon")!;
+    const timedPigeon: HTMLImageElement =
+        document.querySelector(".timedPigeon")!;
 
     const KEY = "timedPigeonUnlocked";
 
