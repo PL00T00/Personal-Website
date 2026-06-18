@@ -106,7 +106,12 @@ import Truth from "../../assets/governmentPork.png";
         data-id="15"
         style="left:700px; top:2500px; transform:scale(4.7);"
     />
-    <img src={Pigeon.src} class="pigeon" data-id="16" style="" />
+    <img
+        src={Pigeon.src}
+        class="pigeon timedPigeon"
+        data-id="16"
+        style="left:1000px; top:2500px; transform:scale(4.7);"
+    />
     <img src={Pigeon.src} class="pigeon" data-id="17" style="" />
     <img src={Pigeon.src} class="pigeon" data-id="18" style="" />
     <img src={Pigeon.src} class="pigeon" data-id="19" style="" />
@@ -120,6 +125,8 @@ import Truth from "../../assets/governmentPork.png";
     <div id="counter">Pigeons found: 0 / 20!</div>
 </Layout>
 <script>
+import { locales } from "astro:schema";
+
     const found = new Set(
         JSON.parse(localStorage.getItem("foundPigeons") || "[]"),
     );
@@ -235,4 +242,36 @@ import Truth from "../../assets/governmentPork.png";
     window.addEventListener("scroll", resetIdle);
     window.addEventListener("keydown", resetIdle);
     window.addEventListener("click", resetIdle);
+
+    const timedPigeon = document.querySelector(".timedPigeon");
+
+    const KEY = "timedPigeonUnlocked";
+
+    function showTimedPigeon() {
+        if (!timedPigeon) return;
+
+        timedPigeon.style.opacity = "1";
+        timedPigeon.style.pointerEvents = "auto";
+        timedPigeon.classList.add("found");
+    }
+
+    function hideTimedPigeon() {
+        if (!timedPigeon) return;
+        
+        timedPigeon.style.opacity = "0";
+        timedPigeon.style.pointerEvents = "none";
+    }
+
+    if (localStorage.getItem(KEY) === "true") {
+        showTimedPigeon();
+    }
+    else {
+        hideTimedPigeon();
+
+        setTimeout(() => {
+            localStorage.setItem(KEY, "true");
+            showTimedPigeon();
+        },5 * 60 * 1000);
+    }
+
 </script>
