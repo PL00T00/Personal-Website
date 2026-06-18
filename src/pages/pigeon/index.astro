@@ -117,15 +117,25 @@ import Truth from "../../assets/governmentPork.png";
     <img src={Pigeon.src} class="pigeon" data-id="19" style="" />
     <img src={Pigeon.src} class="pigeon" data-id="20" style="" />
     <br /><br /><br />
-    <p style="font-size:large">
+    <p style="font-size:large; width:75%; margin: 0 auto;">
         Some pigeons are easy to find, others not so much. Some only come out
-        when the page is visited in certain ways.
+        when the page is visited in certain ways. But you'll have to figure that
+        out yourself.<br /><br /><br />
+        Personally I think <code>?pigeon=cool</code> because of how they behave, they
+        are quite timid and infact wont show their cute faces unless you don't do
+        anything for two seconds. There is one pigeon who lives deep down underground.
+        It eats grubs to live and digs using it's claws and lives in complete darkness.
+        Some other pigeons only come out in the light though, they are anti nocturnal.
+        <br /><br />
+        Pigeons are extremely trusting despite what some people think. If you spend
+        five minutes in their presence they truly open up and reveal themselves. Others
+        on the other hand just want you to pet them as soon as possible and then they
+        really open up.
     </p>
-    <img src={Truth.src} />
     <div id="counter">Pigeons found: 0 / 20!</div>
 </Layout>
 <script>
-import { locales } from "astro:schema";
+    import { locales } from "astro:schema";
 
     const found = new Set(
         JSON.parse(localStorage.getItem("foundPigeons") || "[]"),
@@ -257,21 +267,22 @@ import { locales } from "astro:schema";
 
     function hideTimedPigeon() {
         if (!timedPigeon) return;
-        
+
         timedPigeon.style.opacity = "0";
         timedPigeon.style.pointerEvents = "none";
     }
 
     if (localStorage.getItem(KEY) === "true") {
         showTimedPigeon();
-    }
-    else {
+    } else {
         hideTimedPigeon();
 
-        setTimeout(() => {
-            localStorage.setItem(KEY, "true");
-            showTimedPigeon();
-        },5 * 60 * 1000);
+        setTimeout(
+            () => {
+                localStorage.setItem(KEY, "true");
+                showTimedPigeon();
+            },
+            5 * 60 * 1000,
+        );
     }
-
 </script>
