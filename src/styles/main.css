@@ -238,6 +238,7 @@ input {
 
 .secretPigeon {
     opacity: 0;
+    pointer-events: none;
 }
 
 .secretPigeon:hover {
@@ -245,9 +246,11 @@ input {
 }
 
 .nightPigeon {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .paramPigeon {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
 }
