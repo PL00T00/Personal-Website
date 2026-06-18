@@ -74,7 +74,7 @@ import Truth from "../../assets/governmentPork.png";
         src={Pigeon.src}
         class="pigeon secretPigeon"
         data-id="10"
-        style="top:500px; left: 20px"
+        style="top:515px; left: 20px; transform:scale(3)"
     />
     <img
         src={Pigeon.src}
@@ -222,6 +222,6 @@ import Truth from "../../assets/governmentPork.png";
     });
 
     if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-        document.querySelector(".nightPigeon").style.display = "block";
+        document.querySelector(".nightPigeon")?.classList.remove("nightPigeon");
     }
 </script>
