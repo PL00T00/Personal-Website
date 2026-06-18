@@ -162,7 +162,7 @@ import Truth from "../../assets/governmentPork.png";
         }
     }
 
-    document.querySelectorAll(".pigeon").forEach((pigeon) => {
+    (document.querySelectorAll(".pigeon") as NodeListOf<HTMLImageElement>).forEach((pigeon) => {
         const id = pigeon.dataset.id;
 
         if (found.has(id)) {
@@ -183,8 +183,8 @@ import Truth from "../../assets/governmentPork.png";
 
     updateCounter();
 
-    const pigeonRun = document.querySelector(".pigeonRun");
-    const rect0 = pigeonRun?.getBoundingClientRect();
+    const pigeonRun: HTMLImageElement = document.querySelector(".pigeonRun")!;
+    const rect0 = pigeonRun?.getBoundingClientRect()!;
     let x = rect0.left;
     let y = rect0.top;
 
@@ -223,9 +223,9 @@ import Truth from "../../assets/governmentPork.png";
         document.querySelector(".paramPigeon")?.classList.remove("paramPigeon");
     }
 
-    const lookerPigeon = document.querySelector(".lookerPigeon");
+    const lookerPigeon: HTMLImageElement  = document.querySelector(".lookerPigeon")!;
 
-    let idleTimer = null;
+    let idleTimer = 0;
 
     function hideLooker() {
         if (!lookerPigeon) return;
@@ -255,7 +255,7 @@ import Truth from "../../assets/governmentPork.png";
     window.addEventListener("keydown", resetIdle);
     window.addEventListener("click", resetIdle);
 
-    const timedPigeon = document.querySelector(".timedPigeon");
+    const timedPigeon: HTMLImageElement = document.querySelector(".timedPigeon")!;
 
     const KEY = "timedPigeonUnlocked";
 
